@@ -7,14 +7,14 @@ export const getTransaction = async (req, res, next) => {
     try {
         console.log('first')
         const transaction = await Transaction.find()
-        return res.status(200).json(transaction)
+        return res.status(200).json(transaction)     
     } catch (error) {
         console.log(error)
         next(createError(404, "no transaction data found"))
     }
 }
 
-export const addtransaction = async (req, res, next) => {
+export const addtransaction = async (req, res, next) => { 
     try {
         const transaction = new Transaction(req.body)
         await transaction.save()
